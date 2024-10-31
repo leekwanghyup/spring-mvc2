@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>타임리프로 렌더링 했을 때와 웹브라우저로 열었을 때 비교</div>
+<span th:text="${data}">html data</span>
+
+<h1>1. 표준 HTML 주석</h1>
+<div>렌더링 되면 HTML 주석은 남아있다.</div>
+<!--
+<span th:text="${data}">html data</span>
+-->
+<h1>2. 타임리프 파서 주석</h1>
+<div>타임리프가 이 코드는 렌더링에서 제외한다.(주로 사용)</div>
+<!--/* [[${data}]] */-->
+
+<!--/*-->
+여러줄 주석
+<span th:text="${data}">html data</span>
+<!--*/-->
+
+<h1>3. 타임리프 프로토타입 주석</h1>
+<div>타임리프가 렌더링 할때만 이 코드가 동작한다.
+즉 웹브라우저에서는 이 코드는 표준 HTML 주석 처리 된 상태이다.
+</div>
+<!--/*/
+<span th:text="${data}">html data</span>
+/*/-->
+</body>
+</html>
